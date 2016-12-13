@@ -30,7 +30,8 @@ namespace GigHub.Controllers
         [Authorize, HttpPost]
         public ActionResult Create (GigFormViewModel viewModel )
         {
-            var artist = _context.Users.Single(u => u.Id == User.Identity.GetUserId());
+            var artistId = User.Identity.GetUserId();
+            var artist = _context.Users.Single(u => u.Id == artistId);
             var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
 
             var gig = new Gig
