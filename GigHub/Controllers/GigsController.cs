@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using GigHub.Models;
 using GigHub.ViewModels;
 
@@ -10,8 +11,7 @@ namespace GigHub.Controllers
 
         public GigsController()
         {
-            _context = new ApplicationDbContext(); //Don't worry about Dependancy Injection
-                                        // or Repositories at this point !
+            _context = new ApplicationDbContext(); 
         }
         // GET: Gigs
         public ActionResult Create()
@@ -20,6 +20,7 @@ namespace GigHub.Controllers
             {
                 Genres = _context.Genres.ToList()
             };
+
             return View(viewModel);
         }
     }
