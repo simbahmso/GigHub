@@ -39,8 +39,8 @@ namespace GigHub.Controllers
             var gig = new Gig
             {
                 Artist = artist,
-                // ReSharper disable once UseStringInterpolation
-                DateTime = DateTime.Parse(String.Format("{0}{1}", viewModel.Date, viewModel.Time)),
+               
+               DateTime = DateTime.Parse(string.Format("{0}{1}", viewModel.Date, viewModel.Time)),
                 Genre = genre,
                 Venue = viewModel.Venue
             };
