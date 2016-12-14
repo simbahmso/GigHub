@@ -40,12 +40,12 @@ namespace GigHub.Controllers
             {
                 Artist = artist,
                
-               DateTime = DateTime.Parse(string.Format("{0}{1}", viewModel.Date, viewModel.Time)),
-                Genre = genre,
+                DateTime = DateTime.Parse(string.Format(viewModel.Date, viewModel.Time, "{0}{1}")),
                 Venue = viewModel.Venue
             };
             _context.Gigs.Add(gig);
             _context.SaveChanges();
+
             return RedirectToAction("Index", "Home");
 
         }

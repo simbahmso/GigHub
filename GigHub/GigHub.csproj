@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201612131646403_PopulateGenresTable.Designer.cs">
       <DependentUpon>201612131646403_PopulateGenresTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612140041348_DisableConventionsForGigsAndGenres.cs" />
+    <Compile Include="Migrations\201612140041348_DisableConventionsForGigsAndGenres.Designer.cs">
+      <DependentUpon>201612140041348_DisableConventionsForGigsAndGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -314,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612131646403_PopulateGenresTable.resx">
       <DependentUpon>201612131646403_PopulateGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612140041348_DisableConventionsForGigsAndGenres.resx">
+      <DependentUpon>201612140041348_DisableConventionsForGigsAndGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
