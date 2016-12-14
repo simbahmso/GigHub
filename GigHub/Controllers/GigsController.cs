@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using System.Data.SqlClient;
 
 namespace GigHub.Controllers
 {
@@ -44,8 +45,10 @@ namespace GigHub.Controllers
                 Venue = viewModel.Venue
             };
             _context.Gigs.Add(gig);
-            _context.SaveChanges();
 
+
+
+            
             return RedirectToAction("Index", "Home");
 
         }

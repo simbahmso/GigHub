@@ -3,7 +3,7 @@ namespace GigHub.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialModel : DbMigration
+    public partial class CreateTablesRolesAndGig : DbMigration
     {
         public override void Up()
         {
@@ -12,7 +12,7 @@ namespace GigHub.Migrations
                 c => new
                     {
                         Id = c.Byte(nullable: false),
-                        Name = c.String(),
+                        Name = c.String(nullable: false, maxLength: 255),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -21,15 +21,15 @@ namespace GigHub.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ArtistId = c.String(maxLength: 128),
                         DateTime = c.DateTime(nullable: false),
-                        Venue = c.String(),
-                        Genre_Id = c.Byte(),
+                        Venue = c.String(nullable: false, maxLength: 255),
+                        Artist_Id = c.String(nullable: false, maxLength: 128),
+                        Genre_Id = c.Byte(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.ArtistId)
-                .ForeignKey("dbo.Genres", t => t.Genre_Id)
-                .Index(t => t.ArtistId)
+                .ForeignKey("dbo.AspNetUsers", t => t.Artist_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Genres", t => t.Genre_Id, cascadeDelete: true)
+                .Index(t => t.Artist_Id)
                 .Index(t => t.Genre_Id);
             
             CreateTable(
@@ -106,7 +106,7 @@ namespace GigHub.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Gigs", "Genre_Id", "dbo.Genres");
-            DropForeignKey("dbo.Gigs", "ArtistId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Gigs", "Artist_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -117,7 +117,7 @@ namespace GigHub.Migrations
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Gigs", new[] { "Genre_Id" });
-            DropIndex("dbo.Gigs", new[] { "ArtistId" });
+            DropIndex("dbo.Gigs", new[] { "Artist_Id" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

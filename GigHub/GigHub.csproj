@@ -202,9 +202,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201612140305548_InitialModel.cs" />
-    <Compile Include="Migrations\201612140305548_InitialModel.Designer.cs">
-      <DependentUpon>201612140305548_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201612140412472_CreateTablesRolesAndGig.cs" />
+    <Compile Include="Migrations\201612140412472_CreateTablesRolesAndGig.Designer.cs">
+      <DependentUpon>201612140412472_CreateTablesRolesAndGig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612140415409_PopulateGenresTable.cs" />
+    <Compile Include="Migrations\201612140415409_PopulateGenresTable.Designer.cs">
+      <DependentUpon>201612140415409_PopulateGenresTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612140511243_RemovedValidation.cs" />
+    <Compile Include="Migrations\201612140511243_RemovedValidation.Designer.cs">
+      <DependentUpon>201612140511243_RemovedValidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612140526111_OveerrideConvGigsandGenres.cs" />
+    <Compile Include="Migrations\201612140526111_OveerrideConvGigsandGenres.Designer.cs">
+      <DependentUpon>201612140526111_OveerrideConvGigsandGenres.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -291,8 +303,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201612140305548_InitialModel.resx">
-      <DependentUpon>201612140305548_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612140412472_CreateTablesRolesAndGig.resx">
+      <DependentUpon>201612140412472_CreateTablesRolesAndGig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612140415409_PopulateGenresTable.resx">
+      <DependentUpon>201612140415409_PopulateGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612140511243_RemovedValidation.resx">
+      <DependentUpon>201612140511243_RemovedValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612140526111_OveerrideConvGigsandGenres.resx">
+      <DependentUpon>201612140526111_OveerrideConvGigsandGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
