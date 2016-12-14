@@ -1,12 +1,9 @@
 ﻿using GigHub.Models;
 using GigHub.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using System.Data.SqlClient;
 
 namespace GigHub.Controllers
 {
@@ -37,16 +34,17 @@ namespace GigHub.Controllers
             var artist = _context.Users.Single(u => u.Id == artistId);
             var genre = _context.Genres.Single(g => g.Id == viewModel.Genre);
 
+
             var gig = new Gig
             {
-                Artist = artist,
-               
+                Artist = artist,        
                 DateTime = DateTime.Parse(string.Format(viewModel.Date, viewModel.Time, "{0}{1}")),
-                Venue = viewModel.Venue
+                Genre = genre,
+                Venue = viewModel.Venue              
             };
             _context.Gigs.Add(gig);
 
-
+            _context.SaveChanges();
 
             
             return RedirectToAction("Index", "Home");
